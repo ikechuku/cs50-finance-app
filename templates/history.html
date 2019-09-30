@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   History
+{% endblock %}
+
+{% block main %}
+
+<div class="container">
+        <h2>Transaction History</h2>
+</div>
+<br>    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Transactions </th>
+                <th>Cost</th>
+                <th>Balance</th>
+                <th>Symbol</th>
+                <th>Timestamp</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+           
+      
+                {% for value in history %}
+                <tr>
+                        <td scope="row">{{ value['id'] }}</td>
+                        <td scope="row">{{ value['transactions'] }}</td>
+                        <td scope="row">{{ value['cost'] | usd}}</td>
+                        <td scope="row">{{ value['balance'] | usd }}</td>
+                        <td scope="row" class="text-uppercase">{{ value['symbol'] }}</td>
+                        <td scope="row">{{ value['date_time'] }}</td>
+
+                    </tr>
+                {% endfor %}
+         
+          
+        </tbody>
+    </table>
+   
+{% endblock %}

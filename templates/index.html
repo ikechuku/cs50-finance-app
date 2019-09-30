@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Index
+{% endblock %}
+
+{% block main %}
+<!-- <div class="container"> -->
+    
+        <div class="jumbotron">
+                <h1 class="display-3">Welcome to C$50 finance</h1>
+                
+                <p>Buy and Sell Stock from the American Stock Exchange market</p>
+                <p class="lead">
+                  <a class="btn btn-primary btn-lg" href="https://iexcloud.io" role="button">View the Stock Market</a>
+                </p>
+              </div>
+          
+        <h2>Your Portfolio (Stocks Owned)</h2>
+<!-- </div> -->
+<br>    <br>
+    <table class="table table-dark text-left" >
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Stock Name </th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+           
+      
+                {% for value in row %}
+                <tr >
+                        <td scope="row"class="text-uppercase">{{ value['symbol'] }}</td>
+                        <td scope="row">{{ value['stock_name'] }}</td>
+                        <td scope="row">{{ value['SUM(shares)'] }}</td>
+                        <td scope="row">{{ value['price'] | usd }}</td>
+                        <td scope="row">{{ value['price*SUM(shares)'] | usd }}</td>
+
+                    </tr>
+                {% endfor %}
+                    <tr>
+                        <td><strong>Cash</strong></td>
+                        <td colspan="3"></td>
+                        <td>&#36;{{ cash[0]['cash'] | usd}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td colspan="3">{{ total | usd}}</td>
+                    </tr>
+          
+        </tbody>
+    </table>
+{% endblock %}
+

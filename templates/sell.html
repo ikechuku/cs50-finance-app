@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+
+
+
+<form action="/sell" method="post">
+
+    <div class="form-group">
+            <select class="custom-select" name="symbol" id="" required>
+                    <option value=""  disabled selected> Select a stock to sell</option>
+                    <!-- {% print(symbols) %} -->
+                    {% for i in  symbols %}
+                    <option class="text-uppercase" name="{{ i['symbol'] }}" value="{{ i['symbol'] }}"> {{ i['symbol'] }}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <br>
+        <input autocomplete="off" autofocus class="form-control" name="shares" placeholder="How many" type="number" min="1" required>
+
+    </div>
+    <button class="btn btn-success" type="submit"> Sell</button>
+
+    
+    </div>
+    
+</form>
+
+
+
+
+
+
+{% endblock %}

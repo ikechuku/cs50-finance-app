@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Qutoed
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Symbol </th>
+                <th>Company Name</th>
+                <th>Price </th>
+            </tr>
+        </thead>
+        <tbody>
+            <td scope="row" class="uppercase">{{ quote['symbol']}}</td>
+            <td scope="row">{{ quote['name'] }}
+            <td scope="row">{{ quote['price'] | usd}}</td>          
+        </tbody>
+    </table>
+{% endblock %}
+

@@ -1,0 +1,6 @@
+1. create a register.html in templates
+2. create a form to get signup input from the user in the form
+3. validate on the frontend and send it to the /register route
+4. check if the user already exists:
+    - query database for username and save into a variable
+5. render apology if input is blank or user exists
